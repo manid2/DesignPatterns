@@ -15,7 +15,7 @@ Burger::Burger(int size) :
       m_size(size), m_cheese(false), m_peperoni(false), m_lettuce(false), m_tomato(false) {
 }
 
-void Burger::showFlavors() {
+void Burger::showFlavors() const {
    std::cout << m_size;
    if(m_cheese)
       std::cout << "-cheese";

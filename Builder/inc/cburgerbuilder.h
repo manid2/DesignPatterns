@@ -18,7 +18,7 @@ class BurgerBuilder;
 class Burger {
 public:
    Burger(int size);
-   void showFlavors();
+   void showFlavors() const;
 
 public:
    int  m_size;
@@ -41,6 +41,12 @@ public:
 private:
    Burger* m_burger;
 };
+
+static void execute()
+{
+   Burger *burger = BurgerBuilder(12).AddCheese().AddLettuce().AddTomato().build();
+   burger->showFlavors();
+}
 
 } // end of namespace mani_dp
 

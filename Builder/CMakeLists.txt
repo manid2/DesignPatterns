@@ -4,6 +4,6 @@ include_directories(${DesignPattern_SOURCE_DIR}/Builder/inc)
 
 file(GLOB builder_srcs ${DesignPattern_SOURCE_DIR}/Builder/src/*.cpp)  
 
-set(SOURCES main.cpp ${builder_srcs})
+set(SRCS main.cpp ${builder_srcs})
 
-add_executable(Builder ${SOURCES})
+add_executable(Builder ${SRCS})
