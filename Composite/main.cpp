@@ -1,53 +1,16 @@
-#include <iostream>
-#include <string>
-#include <vector>
+/*
+ * mani.cpp
+ *
+ *  Created on: 29-Jan-2018
+ *      Author: Mani Kumar
+ */
 
-class Employee {
-public:
-    Employee(const std::string& name, float salary): name_(name), salary_(salary) {}
-    virtual std::string GetName() { return name_; }
-    virtual float GetSalary() { return salary_; }
+//#include "cgraphic.h"
+//#include "corganization.h"
+#include "cnode.h"
 
-protected:
-    float salary_;
-    std::string name_;
-};
+using namespace mani_dp;
 
-class Developer : public Employee {
-public:
-    Developer(const std::string& name, float salary) : Employee(name, salary) {}
-};
-
-class Designer : public Employee {
-public:
-    Designer(const std::string& name, float salary) : Employee(name, salary) {}
-};
-
-class Organization {
-public:
-    void AddEmployee(const Employee& employee) {
-        employees_.push_back(employee);
-    }
-    float GetNetSalaries() {
-        float net_salary = 0;
-        for (auto&& employee : employees_) {
-            net_salary += employee.GetSalary();
-        }
-        return net_salary;
-    }
-
-private:
-    std::vector<Employee> employees_;
-};
-
-int main()
-{
-    Developer john("John Doe", 12000);
-    Designer jane("Jane Doe", 15000);
-
-    Organization org;
-    org.AddEmployee(john);
-    org.AddEmployee(jane);
-
-    std::cout << "Net salaries: " << org.GetNetSalaries() << std::endl;
+int main(int argc, char **argv) {
+   return execute();
 }

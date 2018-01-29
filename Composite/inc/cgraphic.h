@@ -5,73 +5,71 @@
  *      Author: Mani Kumar
  */
 
+#ifndef COMPOSITE_CGRAPHIC_H_
+#define COMPOSITE_CGRAPHIC_H_
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
 #include <functional>
-using namespace std;
 
-class Graphic {
+namespace mani_dp {
+
+// Composite Interface
+class IGraphic {
 public:
-  virtual void draw() const = 0;
-  virtual void remove(Graphic *g) {}
-  virtual void add(Graphic *g) {}
-  virtual void getChild(int) {}
-  virtual ~Graphic() {}
+   virtual ~IGraphic(){}
+
+   virtual void draw() const = 0;
+
+   virtual void remove(IGraphic *g){}
+   virtual void add(IGraphic *g){}
+   virtual void getChild(int){}
 };
 
-class Line : public Graphic {
+// Leaf #1
+class Line: public IGraphic {
 public:
-  void draw() const {
-    cout << "Line draw()\n";
-  }
+   void draw() const;
 };
 
-class Rectangle : public Graphic {
+// Leaf #2
+class Rectangle: public IGraphic {
 public:
-  void draw() const {
-    cout << "Rectangle draw() \n";
-  }
+   void draw() const;
 };
 
-class Text : public Graphic {
+// Leaf #3
+class Text: public IGraphic {
 public:
-  void draw() const {
-    cout << "Text draw() \n";
-  }
+   void draw() const;
 };
 
 // Composite
-class Picture : public Graphic {
+class Picture: public IGraphic {
 public:
-  void draw() const {
-    // for each element in gList, call the draw member function
-    for_each(gList.begin(), gList.end(), mem_fun(&Graphic;::draw));
-  }
-
-  void add(Graphic *aGraphic) {
-    gList.push_back(aGraphic);
-  }
+   void draw() const;
+   void add(IGraphic *aGraphic);
 
 private:
-  vector<Graphic*> gList;
+   std::vector<IGraphic*> gList;
 };
 
-int main()
-{
-  Line line;
-  line.draw();
-  Rectangle rect;
-  rect.draw();
-  Text text;
-  text.draw();
+static int execute() {
+   Line line;
+   Rectangle rect;
+   Text text;
 
-  Picture pic;
-  pic.add(&line;);
-  pic.add(&rect;);
-  pic.add(&text;);
-  pic.add(&rect;);
-  pic.draw();
+   Picture pic;
+   pic.add(&line);
+   pic.add(&rect);
+   pic.add(&text);
+   pic.add(&rect);
+   pic.draw();
 
-  return 0;
+   return 0;
 }
+
+} // end of namespace mani_dp
+
+#endif /* COMPOSITE_CGRAPHIC_H_ */
