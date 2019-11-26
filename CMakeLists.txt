@@ -35,14 +35,6 @@ foreach(subdir ${SUBDIRS})
 endforeach()
 message(STATUS "========== All modules are added ==========")
 
-# Add sub directories to the project
-message(STATUS "========== Adding modules to build ==========")
-foreach(subdir ${SUBDIRS})
-  add_subdirectory(${subdir})
-  message(STATUS "Added subdir: " ${subdir})
-endforeach()
-message(STATUS "========== All modules are added ==========")
-
 # Add gtest and gmock at configure time if tests are requested
 # TODO integrate googletest with ctest with conditional test build
 if(BUILD_TESTING)
