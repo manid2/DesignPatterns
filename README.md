@@ -1,27 +1,21 @@
 # Design Patterns
 
-[![Build Status](https://travis-ci.org/pezy/DesignPatterns.svg?branch=master)](https://travis-ci.org/pezy/DesignPatterns)
-[![Build Status](https://ci.appveyor.com/api/projects/status/yy7k6woeksa2gmee/branch/master?svg=true)](https://ci.appveyor.com/project/pezy/designpatterns)
+Learn, preserve and refer design patterns implementation in C++.
 
-Simple example code for [Design Patterns for Humans's chinese and C++ version](https://pushmind.org/2017/07/31/design-patterns-for-humans/).
-
-Install [CMake](https://cmake.org/) at first.
-
-## first clone
+## How to build
 
 ```sh
-cd DesignPatterns
-cmake .
-```
+mkdir dp_t; cd dp_t
 
-## build
+git clone https://github.com/manid2/DesignPatterns.git
 
-```sh
-cmake --build . --target all
-```
+mkdir build; cd build
 
-## clean
-
-```sh
-cmake --build . --target clean
+cmake ../DesignPatterns \
+      -G"Eclipse CDT4 - Unix Makefiles" \
+      -DCMAKE_ECLIPSE_GENERATE_SOURCE_PROJECT=TRUE \
+      -DCMAKE_BUILD_TYPE=Debug \
+      -DCMAKE_CXX_FLAGS="-std=c++11" \
+      -DCMAKE_CXX_COMPILER_ARG1=-std=c++11 \
+      -DBUILD_TESTING=OFF
 ```
