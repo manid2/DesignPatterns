@@ -1,4 +1,6 @@
-# For CMake
+# Project level .gitignore file
+
+# CMake generated files
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
@@ -8,13 +10,10 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+build
+build-*
 
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
-
-*.user
-*~
-*.autosave
+# generated files
 *.a
 *.core
 *.moc
@@ -24,23 +23,12 @@ CTestTestfile.cmake
 *.rej
 *.so
 *.so.*
-*_pch.h.cpp
+*.debug
+*.dll
+*.exe
 *_resource.rc
 *.qm
-.#*
-*.*#
-core
-!core/
-tags
 .DS_Store
-.directory
-*.debug
-Makefile*
-*.prl
-*.app
-moc_*.cpp
-ui_*.h
-qrc_*.cpp
 Thumbs.db
 *.res
 *.rc
@@ -70,16 +58,12 @@ Thumbs.db
 *.opensdf
 *.vcxproj
 *vcxproj.*
+.vscode
+
+# Eclipse generated files
+.project
+.cproject
 
 # MinGW generated files
 *.Debug
 *.Release
-
-# Python byte code
-*.pyc
-
-# Binaries
-# --------
-*.dll
-*.exe
-
