@@ -18,7 +18,7 @@ target_include_directories(${module_lib_name} PRIVATE ${module_include})
 set(exe_srcs main.cpp)
 add_executable(${module_name} ${exe_srcs})
 target_include_directories(${module_name} PRIVATE ${module_include})
-target_link_libraries(${module_name} PRIVATE ${module_lib_name} pthread)
+target_link_libraries(${module_name} PRIVATE ${module_lib_name})
 
 #-- target for test build
 # TODO make tests conditional
